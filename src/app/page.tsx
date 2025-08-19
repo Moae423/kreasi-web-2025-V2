@@ -3,10 +3,7 @@ import Homepage from "@/components/Home/section/Homepage";
 const page = () => {
   return (
     <>
-      <section>
-        <Homepage />
-      </section>
-      <section>
+      <section id="homepage">
         <Homepage />
       </section>
     </>
