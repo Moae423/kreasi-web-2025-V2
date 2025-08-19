@@ -1,7 +1,16 @@
-import React from "react";
+import Homepage from "@/components/Home/section/Homepage";
 
 const page = () => {
-  return <div className="min-h-screen bg-gray-700">page</div>;
+  return (
+    <>
+      <section>
+        <Homepage />
+      </section>
+      <section>
+        <Homepage />
+      </section>
+    </>
+  );
 };
 
 export default page;
