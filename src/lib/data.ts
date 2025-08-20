@@ -4,6 +4,13 @@ import Client3 from "@/assets/images/logo-honda.png";
 import Client4 from "@/assets/images/logo-lenovo.png";
 import Client5 from "@/assets/images/logo-sampoerna.png";
 import Client6 from "@/assets/images/logo-telkomsel.png";
+import Client7 from "@/assets/images/logo-bank-mandiri.png";
+import Client8 from "@/assets/images/logo-bank-bni.png";
+import Client9 from "@/assets/images/logo-epson.png";
+import Client10 from "@/assets/images/logo-rokok-camel copy.png";
+import Client11 from "@/assets/images/logo-djarum.png";
+import Client12 from "@/assets/images/kredivo-seeklogo.png";
+import Client13 from "@/assets/images/logo-class-mild.png";
 export const navItem = [
   {
     menu: "Home",
@@ -60,6 +67,34 @@ export const logoClient = [
   },
   {
     path: Client6,
-    alt: "Tlekomsel",
+    alt: "Telkomsel",
+  },
+  {
+    path: Client7,
+    alt: "Bank Mandiri",
+  },
+  {
+    path: Client8,
+    alt: "Bank BNI",
+  },
+  {
+    path: Client9,
+    alt: "EPSON",
+  },
+  {
+    path: Client10,
+    alt: "Camel",
+  },
+  {
+    path: Client11,
+    alt: "Djarum",
+  },
+  {
+    path: Client12,
+    alt: "Kredivo",
+  },
+  {
+    path: Client13,
+    alt: "Class Mild",
   },
 ];

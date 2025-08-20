@@ -17,7 +17,7 @@ const Whychooseus = () => {
         </div>
         <Card />
       </div>
-      <div className="my-3 px-4 sm:px-6 lg:px-8">
+      <div className="p-3">
         <p
           className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] 
                text-gray-600 leading-relaxed text-left"
@@ -36,7 +36,7 @@ const Whychooseus = () => {
 
           {/* Tablet & Desktop: Grid or flex wrap */}
           <div className="">
-            <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-12 py-4 md:py-6 lg:py-8 overflow-hidden">
+            <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-12 py-4 md:py-6  lg:py-8 overflow-hidden">
               {logoClient.map((item, index) => (
                 <Image
                   src={item.path}

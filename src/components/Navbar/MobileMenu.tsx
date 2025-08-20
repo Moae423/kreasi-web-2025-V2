@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Drawer,
   DrawerClose,
@@ -13,16 +13,20 @@ import {
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
-import { HiMenuAlt3 } from "react-icons/hi"; // icon burger buat trigger
+import { RiCloseLine } from "react-icons/ri";
+import { TiThMenu } from "react-icons/ti";
 import { navItem } from "@/lib/data";
 import { Satoshi } from "@/lib/font";
 
 const MobileMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
-      <Drawer>
+      <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger>
-          <HiMenuAlt3 />
+          {isOpen ? <RiCloseLine /> : <TiThMenu />}
+          {/* <HiMenuAlt3 /> */}
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
