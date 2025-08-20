@@ -10,7 +10,7 @@ import { navItem } from "@/lib/data";
 const Navbar = () => {
   return (
     <nav
-      className={`fixed top-0 md:top-8 left-0 right-0 max-w-7xl mx-auto py-4 px-6 md:px-12 bg-white/25 backdrop-blur-2xl rounded-none md:rounded-xl text-white ${Satoshi.className} font-satoshi`}
+      className={`fixed top-0 md:top-8 left-0 right-0 max-w-7xl mx-auto py-4 px-6 md:px-12 bg-black/25 backdrop-blur-2xl rounded-none md:rounded-xl text-white ${Satoshi.className} font-satoshi`}
     >
       <div className="flex items-center justify-between text-[24px]">
         <Image src={LogoKreasi} alt="Logo Kreasi" className="w-24" />

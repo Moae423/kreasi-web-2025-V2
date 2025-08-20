@@ -5,7 +5,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -15,7 +14,6 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
 import { HiMenuAlt3 } from "react-icons/hi"; // icon burger buat trigger
-import { GrClose } from "react-icons/gr"; // icon close
 import { navItem } from "@/lib/data";
 import { Satoshi } from "@/lib/font";
 

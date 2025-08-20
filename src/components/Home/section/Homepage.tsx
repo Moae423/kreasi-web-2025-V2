@@ -8,7 +8,7 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-black">
       <div
-        className={`flex flex-col lg:flex-row md:justify-start justify-center items-center min-h-screen bg-[#0F2166] text-white gap-3 px-6 md:px-0 ${Satoshi.className}`}
+        className={`flex flex-col lg:flex-row md:justify-start justify-center items-center min-h-screen bg-[#0F2166] text-white gap-3 md:gap-5 lg:gap-8 px-6 md:px-0 ${Satoshi.className}`}
       >
         {/* Gambar */}
         <Image
@@ -19,7 +19,7 @@ const Homepage = () => {
         />
 
         {/* Teks */}
-        <div className="flex flex-col max-w-3xl gap-3 text-center  lg:text-left my-3 lg:mt-0">
+        <div className="flex flex-col max-w-3xl gap-3 text-left my-3 lg:mt-0">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[76px] font-bold">
             Beriklan Bersama Kreasi Advertising
           </h1>
@@ -30,7 +30,7 @@ const Homepage = () => {
           </p>
           <div className="flex justify-center lg:justify-start">
             <Link href="/contact-us">
-              <Button className="flex items-center gap-2 text-[16px] sm:text-[18px] p-4 sm:p-6 cursor-pointer bg-[#152E8F] hover:text-black hover:bg-[#FCBB2D] hover:scale-105 active:scale-100 transition duration-300 ease-in-out">
+              <Button className="flex items-center gap-2 font-bold text-[16px] sm:text-[18px] p-4 sm:p-6 cursor-pointer bg-[#152E8F] hover:text-black hover:bg-[#FCBB2D] hover:scale-105 active:scale-100 transition duration-300 ease-in-out">
                 <BsBriefcaseFill className="w-5 h-5" />
                 Hire Us
               </Button>
