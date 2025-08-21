@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { BsBriefcaseFill } from "react-icons/bs";
+
 import gambar from "@/assets/images/billdoard (2).jpg";
+import HireUs from "@/components/CtaButton";
 
 const CTA = () => {
   return (
@@ -17,18 +19,17 @@ const CTA = () => {
       />
 
       {/* Overlay content */}
-      <div className="relative z-10 max-w-3xl px-6">
+      <div className="relative flex flex-col gap-5 items-center z-10 max-w-3xl px-6">
         <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
           Growth Your Business
         </h1>
-        <p className="mt-4 text-white/90 text-lg md:text-xl">
+        <p className="text-white text-lg md:text-xl">
           Bersama kami naikan brand awareness anda
         </p>
-        <Link href="/contact-us">
-          <button className="mt-6 px-6 py-3 bg-[#152E8F] text-white font-semibold rounded-lg shadow-lg hover:bg-[#FCBB2D] hover:text-black transition-transform transform hover:scale-105">
-            Hire Us
-          </button>
-        </Link>
+        <HireUs link={"/contact-us"}>
+          <BsBriefcaseFill />
+          Hire Us
+        </HireUs>
       </div>
     </section>
   );

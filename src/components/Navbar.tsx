@@ -3,13 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import LogoKreasi from "@/assets/images/LOGO KREASI.png";
-import { Button } from "./ui/button";
 import { Satoshi } from "@/lib/font";
-import { MdEmail } from "react-icons/md";
 import MobileMenu from "./Navbar/MobileMenu";
 import { navItem } from "@/lib/data";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import CtaButton from "./CtaButton";
+import { MdEmail } from "react-icons/md";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
@@ -52,12 +52,16 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Contact Button */}
-        <Link href={"/contact-us"} className="hidden md:block">
+        {/* <Link href={"/contact-us"} className="hidden md:block">
           <Button className="text-[18px] p-6 cursor-pointer bg-[#152E8F] font-bold hover:text-black hover:bg-[#FCBB2D] hover:scale-105 active:scale-100 transition duration-300 ease-in-out">
             <MdEmail width={400} height={400} />
             Contact Us
           </Button>
-        </Link>
+        </Link> */}
+        <CtaButton link="#">
+          <MdEmail width={400} height={400} />
+          Contact Us
+        </CtaButton>
 
         {/* Mobile Menu */}
         <div className="block md:hidden">

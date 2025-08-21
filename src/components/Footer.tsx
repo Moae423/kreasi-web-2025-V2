@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import LogoKreasi from "@/assets/images/LOGO KREASI.png";
 import { FaFacebook, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { FooterItem } from "@/lib/data";
+import Link from "next/link";
 
 const Footer = () => {
   const socialLinks = [
@@ -11,39 +13,24 @@ const Footer = () => {
     { icon: FaYoutube, href: "#", hoverColor: "hover:text-red-500" },
   ];
 
-  const menuSections = [
-    {
-      title: "Services",
-      items: ["Advertising", "Digital Marketing", "Brand Strategy"],
-    },
-    {
-      title: "Company",
-      items: ["About Us", "Our Team", "Careers"],
-    },
-    {
-      title: "Support",
-      items: ["Contact", "Help Center", "Privacy Policy"],
-    },
-  ];
-
   return (
-    <footer className="bg-gradient-to-r from-gray-800 to-gray-900 p-20">
-      <div className="flex flex-col lg:flex-row items-start justify-between bg-black/20 backdrop-blur-sm rounded-lg p-8 gap-8">
+    <footer className="bg-gradient-to-br from-[#09133C] to-[#0C194F] p-8 md:p-8 lg:p-10 h-full  lg:h-[20rem]">
+      <div className="flex flex-col lg:flex-row items-start md:items-center justify-between bg-black/20 backdrop-blur-sm rounded-lg p-8 gap-5 h-full">
         {/* Brand Section */}
-        <div className="flex flex-col gap-4 max-w-md">
+        <div className="flex flex-col items-center md:items-start gap-4 max-w-md">
           <Image
             src={LogoKreasi}
             alt="Logo Kreasi"
             className="w-24 h-auto"
             priority
           />
-          <p className="text-sm text-gray-300 leading-relaxed">
+          <p className="text-sm text-gray-300 text-center md:text-start ">
             Kreasi Advertising is a registered trademark. All Rights Reserved
             2025.
           </p>
 
           {/* Social Links */}
-          <div className="flex gap-4 mt-4 text-xl text-white">
+          <div className="flex gap-4  text-xl text-white">
             {socialLinks.map(({ icon: Icon, href, hoverColor }, index) => (
               <a
                 key={index}
@@ -56,21 +43,17 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
-        {/* Menu Sections */}
-        <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
-          {menuSections.map((section, index) => (
-            <div key={index} className="text-white">
-              <h3 className="font-semibold text-lg mb-3">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.items.map((item, itemIndex) => (
-                  <li key={itemIndex}>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
-                    >
-                      {item}
-                    </a>
+        {/* Menu */}
+        <div className="flex flex-col md:flex-row  items-start justify-center gap-3 p-3">
+          {FooterItem.map((item, i) => (
+            <div key={i} className="flex flex-col items-start p-3 ">
+              <div className="text-lg font-bold text-white">{item.title}</div>
+              <ul className="text-gray-400">
+                {item.subItems.map((subItems, i) => (
+                  <li key={i}>
+                    <Link href={subItems.link} className="hover:text-white">
+                      {subItems.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

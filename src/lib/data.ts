@@ -98,3 +98,34 @@ export const logoClient = [
     alt: "Class Mild",
   },
 ];
+
+export const FooterItem = [
+  {
+    title: "Services",
+    subItems: [
+      { label: "Billboard", link: "#" },
+      { label: "Banner", link: "#" },
+      { label: "Media Printing", link: "#" },
+    ],
+  },
+  {
+    title: "Legal",
+    subItems: [
+      { label: "Privac Policy", link: "" },
+      { label: "Terms & Condition", link: "" },
+      { label: "Disclaimer", link: "" },
+    ],
+  },
+  {
+    title: "Contact Us",
+    subItems: [
+      {
+        label: "Alamat",
+        desc: "Jl. Soekarno Hatta No.79, Garegeh, Bukittinggi, Kota Bukittinggi, Sumatera Barat 26127",
+        link: "#",
+      },
+      { label: "Whatsapp", desc: "+628134231232", link: "#" },
+      { label: "Gmail", desc: "citramedia@kreasi.com", link: "#" },
+    ],
+  },
+];

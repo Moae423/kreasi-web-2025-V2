@@ -22,9 +22,9 @@ const Whychooseus = () => {
           className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] 
                text-gray-600 leading-relaxed text-left"
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
-          quas, velit dicta architecto alias inventore quaerat ipsum, eos
-          molestiae vitae nesciunt nemo?
+          Kepercayaan dari brand ternama adalah bukti nyata kualitas layanan
+          kami. Bersama klien-klien besar, kami terus menghadirkan desain yang
+          berdampak dan berjangka panjang.
         </p>
 
         <hr className="border-t-2 border-gray-500 my-4 sm:my-6" />
