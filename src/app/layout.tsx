@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Satoshi } from "@/lib/font";
+import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Kreasi Advertising | Jasa Iklan & Promosi Terbaik",
   description:
@@ -46,6 +47,7 @@ export default function RootLayout({
       <body className={`${Satoshi.className} antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

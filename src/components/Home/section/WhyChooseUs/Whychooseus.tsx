@@ -6,7 +6,7 @@ import { logoClient } from "@/lib/data";
 const Whychooseus = () => {
   return (
     <div className="p-0 md:p-6 lg:p-10 min-h-screen bg-[#FFF8EA]">
-      <div className="flex flex-col md:flex-row items-center justify-between my-3 gap-8 md:gap-12 min-h-[60vh]">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 min-h-[60vh] py-3">
         <div className="flex flex-col text-center md:text-left">
           <h1 className="text-xl md:text-2xl font-bold text-[#333333]">
             Why Choose Us
