@@ -14,7 +14,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-[#09133C] to-[#0C194F] p-8 md:p-8 lg:p-10 h-full  lg:h-[20rem]">
+    <footer className="bg-gradient-to-br from-[#09133C] to-[#0C194F] p-3 md:p-8 lg:p-10 h-full  lg:h-[20rem]">
       <div className="flex flex-col lg:flex-row items-start md:items-center justify-between bg-black/20 backdrop-blur-sm rounded-lg p-8 gap-5 h-full">
         {/* Brand Section */}
         <div className="flex flex-col items-center md:items-start gap-4 max-w-md">
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
         </div>
         {/* Menu */}
-        <div className="flex flex-col md:flex-row  items-start justify-center gap-3 p-3">
+        <div className="flex flex-row  items-start justify-center gap-3">
           {FooterItem.map((item, i) => (
             <div key={i} className="flex flex-col items-start p-3 ">
               <div className="text-lg font-bold text-white">{item.title}</div>

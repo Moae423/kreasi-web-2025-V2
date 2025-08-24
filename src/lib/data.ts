@@ -11,6 +11,9 @@ import Client10 from "@/assets/images/logo-rokok-camel copy.png";
 import Client11 from "@/assets/images/logo-djarum.png";
 import Client12 from "@/assets/images/kredivo-seeklogo.png";
 import Client13 from "@/assets/images/logo-class-mild.png";
+import Billboard from "@/assets/images/Billboard_Homepage.jpg";
+import Neonbox from "@/assets/images/NeonBox.jpg";
+import Banner from "@/assets/images/Banner.jpg";
 export const navItem = [
   {
     menu: "Home",
@@ -111,13 +114,13 @@ export const FooterItem = [
   {
     title: "Legal",
     subItems: [
-      { label: "Privac Policy", link: "" },
+      { label: "Privacy Policy", link: "" },
       { label: "Terms & Condition", link: "" },
       { label: "Disclaimer", link: "" },
     ],
   },
   {
-    title: "Contact Us",
+    title: "Contact",
     subItems: [
       {
         label: "Alamat",
@@ -127,5 +130,27 @@ export const FooterItem = [
       { label: "Whatsapp", desc: "+628134231232", link: "#" },
       { label: "Gmail", desc: "citramedia@kreasi.com", link: "#" },
     ],
+  },
+];
+
+// SERVICES
+export const cardServices = [
+  {
+    title: "Premium Billboard & Street Sign Installation",
+    Desc: "Kami menyediakan layanan pemasangan baliho (billboard) berkualitas tinggi di area strategis seperti Lake Angelita. Hadirkan pesan brand Anda dengan visibilitas maksimal di ruang publik.",
+    position: "right",
+    image: Billboard,
+  },
+  {
+    title: "Neon Box & Digital Printing Solutions",
+    Desc: "Tingkatkan daya tarik bisnis Anda dengan neon box terang dan desain mencolok, dilengkapi dengan layanan cetak digital (printing) berkualitas untuk berbagai kebutuhan promosi.",
+    position: "left",
+    image: Neonbox,
+  },
+  {
+    title: "Pemasangan Spanduk",
+    Desc: "Tingkatkan daya tarik bisnis Anda dengan neon box terang dan desain mencolok, dilengkapi dengan layanan cetak digital (printing) berkualitas untuk berbagai kebutuhan promosi.",
+    position: "right",
+    image: Banner,
   },
 ];

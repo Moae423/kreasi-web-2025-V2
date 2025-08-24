@@ -42,22 +42,15 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-5">
           {navItem.map((item, index) => (
-            <li
+            <Link
               key={index}
+              href={item.link}
               className="font-bold hover:text-[#FCBB2D] hover:-translate-y-1 transition duration-300 ease-in-out"
             >
-              <Link href={item.link}>{item.menu}</Link>
-            </li>
+              <li>{item.menu}</li>
+            </Link>
           ))}
         </ul>
-
-        {/* Desktop Contact Button */}
-        {/* <Link href={"/contact-us"} className="hidden md:block">
-          <Button className="text-[18px] p-6 cursor-pointer bg-[#152E8F] font-bold hover:text-black hover:bg-[#FCBB2D] hover:scale-105 active:scale-100 transition duration-300 ease-in-out">
-            <MdEmail width={400} height={400} />
-            Contact Us
-          </Button>
-        </Link> */}
         <CtaButton link="#">
           <MdEmail width={400} height={400} />
           Contact Us

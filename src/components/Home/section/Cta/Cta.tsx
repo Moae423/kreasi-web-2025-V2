@@ -8,7 +8,7 @@ import HireUs from "@/components/CtaButton";
 
 const CTA = () => {
   return (
-    <section className="relative w-full h-[60vh] flex items-center justify-center text-center overflow-hidden">
+    <div className="relative w-full h-[60vh] flex items-center justify-center text-center overflow-hidden">
       {/* Background image */}
       <Image
         src={gambar}
@@ -31,7 +31,7 @@ const CTA = () => {
           Hire Us
         </HireUs>
       </div>
-    </section>
+    </div>
   );
 };
 
