@@ -1,6 +1,8 @@
 import React from "react";
 import Hero from "@/components/Services/Section/Hero";
 import ServicesPage from "@/components/Services/Section/ServicesPage";
+import OurWorks from "@/components/Services/Section/OurWorks";
+import CtaServices from "@/components/Services/Section/CtaServices";
 
 const page = () => {
   return (
@@ -10,6 +12,12 @@ const page = () => {
       </section>
       <section id="services">
         <ServicesPage />
+      </section>
+      <section id="ourworks">
+        <OurWorks />
+      </section>
+      <section id="ctaServices">
+        <CtaServices />
       </section>
     </main>
   );

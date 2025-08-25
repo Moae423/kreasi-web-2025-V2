@@ -14,6 +14,12 @@ import Client13 from "@/assets/images/logo-class-mild.png";
 import Billboard from "@/assets/images/Billboard_Homepage.jpg";
 import Neonbox from "@/assets/images/NeonBox.jpg";
 import Banner from "@/assets/images/Banner.jpg";
+// Our Works
+import ourWorks1 from "@/assets/images/Our Works/Our-Works (1).jpg";
+import ourWorks2 from "@/assets/images/Our Works/Our-Works (2).jpg";
+import ourWorks3 from "@/assets/images/Our Works/Our-Works (3).jpg";
+import ourWorks4 from "@/assets/images/Our Works/Our-Works (4).jpg";
+// Our Works
 export const navItem = [
   {
     menu: "Home",
@@ -133,7 +139,6 @@ export const FooterItem = [
   },
 ];
 
-// SERVICES
 export const cardServices = [
   {
     title: "Premium Billboard & Street Sign Installation",
@@ -152,5 +157,38 @@ export const cardServices = [
     Desc: "Tingkatkan daya tarik bisnis Anda dengan neon box terang dan desain mencolok, dilengkapi dengan layanan cetak digital (printing) berkualitas untuk berbagai kebutuhan promosi.",
     position: "right",
     image: Banner,
+  },
+];
+
+export const OurWorks = [
+  {
+    image: ourWorks4,
+    title: "Billboard Sampoerna ",
+    address: "Jl. Sudirman No. 120, Jakarta Pusat, DKI Jakarta",
+  },
+  {
+    image: Neonbox,
+    title: "Neon Box Bank BSI",
+    address: "Jl. Asia Afrika No. 22, Bandung, Jawa Barat",
+  },
+  {
+    image: Banner,
+    title: "Spanduk Puskesmas Kurai",
+    address: "Jl. Adisucipto No. 88, Pontianak, Kalimantan Barat",
+  },
+  {
+    image: ourWorks3,
+    title: "Billboard Indomie",
+    address: "Jl. Diponegoro No. 14, Surabaya, Jawa Timur",
+  },
+  {
+    image: ourWorks1,
+    title: "Neon Box Alfamart",
+    address: "Jl. Gajah Mada No. 9, Medan, Sumatera Utara",
+  },
+  {
+    image: ourWorks2,
+    title: "Banner Kampus UGM",
+    address: "Jl. Kaliurang Km. 5, Sleman, Yogyakarta",
   },
 ];
