@@ -21,11 +21,11 @@ const CtaServices = () => {
       </div>
 
       {/* Image Section */}
-      <div className="w-full lg:w-1/2 h-full flex">
+      <div className="w-full lg:w-1/2 h-full flex ">
         <Image
           src={billboard}
           alt="billboard"
-          className="object-cover w-full h-full rounded-none"
+          className="object-cover w-full h-full rounded-none "
         />
       </div>
     </div>
