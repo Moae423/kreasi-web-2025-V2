@@ -65,7 +65,11 @@ const Homepage = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: reduceMotion ? 0.2 : 0.35, ease: "easeOut" }}
+          transition={{
+            duration: reduceMotion ? 0.2 : 0.35,
+            delay: 0.35,
+            ease: "easeInOut",
+          }}
           className="flex flex-col max-w-3xl gap-3 text-left my-3 lg:mt-0"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[76px] font-bold">
