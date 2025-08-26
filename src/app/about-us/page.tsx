@@ -1,7 +1,7 @@
 import Hero from "@/components/About-us/Section/Hero";
 import Stories from "@/components/About-us/Section/Stories";
 import Visi from "@/components/About-us/Section/Visi";
-import CTA from "@/components/Home/section/Cta/Cta";
+import CtaAbout from "@/components/About-us/Section/CtaAbout";
 const page = () => {
   return (
     <main>
@@ -15,7 +15,7 @@ const page = () => {
         <Visi />
       </section>
       <section id="cta">
-        <CTA />
+        <CtaAbout />
       </section>
     </main>
   );
