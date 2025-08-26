@@ -18,7 +18,7 @@ const CtaButton = ({ children, link, className }: CtaButtonProps) => {
   }
   return (
     <Link href={link}>
-      <Button className="hidden md:flex items-center gap-2 font-bold text-[16px] sm:text-[18px] p-4 sm:p-6 cursor-pointer bg-[#152E8F] hover:text-black hover:bg-[#FCBB2D] hover:scale-105 active:scale-100 transition duration-300 ease-in-out">
+      <Button className=" md:flex items-center gap-2 font-bold text-[16px] sm:text-[18px] p-4 sm:p-6 cursor-pointer bg-[#152E8F] hover:text-black hover:bg-[#FCBB2D] hover:scale-105 active:scale-100 transition duration-300 ease-in-out">
         {children}
       </Button>
     </Link>
