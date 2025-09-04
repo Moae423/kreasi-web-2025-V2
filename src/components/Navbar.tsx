@@ -1,39 +1,55 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import LogoKreasi from "@/assets/images/LOGO KREASI.png";
 import { Satoshi } from "@/lib/font";
 import MobileMenu from "./Navbar/MobileMenu";
 import { navItem } from "@/lib/data";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import CtaButton from "./CtaButton";
 import { MdEmail } from "react-icons/md";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 const Navbar = () => {
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  useEffect(() => {
-    const handScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setShow(false);
-      } else {
-        setShow(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handScroll);
-    return () => {
-      window.removeEventListener("scroll", handScroll);
-    };
-  }, [lastScrollY]);
+  const NavRef = useRef(null);
+  useGSAP(() => {
+    gsap.fromTo(
+      NavRef.current,
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power4.inOut", delay: 0.2 }
+    );
+
+    ScrollTrigger.create({
+      start: "top top",
+      end: "max",
+      onUpdate: (self) => {
+        if (self.direction === 1) {
+          // scroll ke bawah -> hide
+          gsap.to(NavRef.current, {
+            y: -100,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power4.inOut",
+          });
+        } else {
+          // scroll ke atas -> show
+          gsap.to(NavRef.current, {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power4.inOut",
+          });
+        }
+      },
+    });
+  });
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: show ? 0 : -200 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+    <nav
+      ref={NavRef}
       className={`fixed z-50 top-0 md:top-8 left-0 right-0 max-w-7xl mx-auto py-4 px-6 md:px-12 md:bg-black/25 backdrop-blur-2xl rounded-none md:rounded-xl text-white ${Satoshi.className} font-satoshi`}
     >
       <div className="flex items-center justify-between text-[24px]">
@@ -61,7 +77,7 @@ const Navbar = () => {
           <MobileMenu />
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

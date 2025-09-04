@@ -1,11 +1,13 @@
 "use client";
-import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Billboard from "@/assets/images/Billboard_Homepage.jpg";
 import { Satoshi } from "@/lib/font";
 import { Metadata } from "next";
 import HireUs from "@/components/CtaButton";
 import { BsBriefcaseFill } from "react-icons/bs";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 export const metadata: Metadata = {
   title:
     "Kreasi Advertising - Jasa Iklan Billboard & Media Promosi Bukittinggi",
@@ -47,10 +49,17 @@ export const metadata: Metadata = {
   },
 };
 const Homepage = () => {
-  const reduceMotion = useReducedMotion();
+  const titleRef = useRef(null);
+  useGSAP(() => {
+    gsap.fromTo(
+      titleRef.current,
+      { x: -50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1, ease: "power4.inOut", delay: 0.2 }
+    );
+  });
   return (
     <div className="min-h-screen bg-black">
-      <motion.div
+      <div
         className={`flex flex-col lg:flex-row md:justify-start justify-center items-center min-h-screen bg-[#0F2166] text-white gap-3 md:gap-5 lg:gap-8 px-6 md:px-0 ${Satoshi.className}`}
       >
         {/* Gambar */}
@@ -62,14 +71,8 @@ const Homepage = () => {
         />
 
         {/* Teks */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: reduceMotion ? 0.2 : 0.35,
-            delay: 0.35,
-            ease: "easeInOut",
-          }}
+        <div
+          ref={titleRef}
           className="flex flex-col max-w-3xl gap-3 text-left my-3 lg:mt-0"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[76px] font-bold">
@@ -86,8 +89,8 @@ const Homepage = () => {
               Hire Us
             </HireUs>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
