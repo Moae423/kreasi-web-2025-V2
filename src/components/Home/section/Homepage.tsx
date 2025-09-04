@@ -81,12 +81,6 @@ const Homepage = () => {
             kreatif yang efektif menjangkau lebih banyak pelanggan.
           </p>
           <div className="flex justify-center lg:justify-start">
-            {/* <Link href="/contact-us">
-              <Button className="flex items-center gap-2 font-bold text-[16px] sm:text-[18px] p-4 sm:p-6 cursor-pointer bg-[#152E8F] hover:text-black hover:bg-[#FCBB2D] hover:scale-105 active:scale-100 transition duration-300 ease-in-out">
-                <BsBriefcaseFill className="w-5 h-5" />
-                Hire Us
-              </Button>
-            </Link> */}
             <HireUs link="/contact-us">
               <BsBriefcaseFill />
               Hire Us

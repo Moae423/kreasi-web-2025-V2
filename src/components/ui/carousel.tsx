@@ -114,7 +114,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           }`}
         >
           <h1 className="text-lg md:text-xl lg:text-[24px] font-bold">
-            Lorem ipsum dolor sit amet.
+            {title}
           </h1>
           <p className="text-[12px] md:text-[14px] text-gray-300">{desc}</p>
         </article>

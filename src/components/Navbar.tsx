@@ -51,7 +51,7 @@ const Navbar = () => {
             </Link>
           ))}
         </ul>
-        <CtaButton link="#">
+        <CtaButton className="hidden md:flex" link="#">
           <MdEmail width={400} height={400} />
           Contact Us
         </CtaButton>
