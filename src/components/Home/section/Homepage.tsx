@@ -2,61 +2,42 @@
 import Image from "next/image";
 import Billboard from "@/assets/images/Billboard_Homepage.jpg";
 import { Satoshi } from "@/lib/font";
-import { Metadata } from "next";
 import HireUs from "@/components/CtaButton";
 import { BsBriefcaseFill } from "react-icons/bs";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-export const metadata: Metadata = {
-  title:
-    "Kreasi Advertising - Jasa Iklan Billboard & Media Promosi Bukittinggi",
-  description:
-    "Kreasi Advertising adalah penyedia jasa periklanan terpercaya di Bukittinggi. Kami melayani iklan billboard, spanduk, dan media promosi kreatif untuk menjangkau lebih banyak pelanggan.",
-  keywords: [
-    "iklan billboard Bukittinggi",
-    "jasa advertising",
-    "media promosi",
-    "spanduk Bukittinggi",
-    "Kreasi Advertising",
-  ],
-  authors: [{ name: "Kreasi Advertising" }],
-  openGraph: {
-    title: "Kreasi Advertising - Solusi Iklan Billboard & Media Promosi",
-    description:
-      "Tingkatkan exposure bisnis Anda dengan jasa iklan billboard, spanduk, dan media promosi dari Kreasi Advertising di Bukittinggi.",
-    url: "https://www.kreasiadvertising.com", // ganti sesuai domain lu
-    siteName: "Kreasi Advertising",
-    images: [
-      {
-        url: "/og-image.jpg", // taruh gambar og di /public
-        width: 1200,
-        height: 630,
-        alt: "Kreasi Advertising Billboard",
-      },
-    ],
-    locale: "id_ID",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@kreasi_ads", // ganti kalau punya Twitter
-    creator: "@kreasi_ads",
-    images: ["/og-image.jpg"],
-  },
-  alternates: {
-    canonical: "https://www.kreasiadvertising.com",
-  },
-};
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Homepage = () => {
-  const titleRef = useRef(null);
+  const sectionHome = useRef<HTMLDivElement | null>(null);
+
   useGSAP(() => {
-    gsap.fromTo(
-      titleRef.current,
-      { x: -50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power4.inOut", delay: 0.2 }
-    );
-  });
+    const ctx = gsap.context(() => {
+      // Animasi child, bukan parent
+      gsap.fromTo(
+        Array.from(sectionHome.current?.children || []), // convert ke array
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.inOut",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: sectionHome.current,
+            start: "top 80%", // baru jalan pas muncul di layar
+            toggleActions: "play none none reset", // play sekali doang
+          },
+        }
+      );
+    }, sectionHome);
+
+    return () => ctx.revert(); // cleanup GSAP
+  }, []);
+
   return (
     <div className="min-h-screen bg-black">
       <div
@@ -72,13 +53,13 @@ const Homepage = () => {
 
         {/* Teks */}
         <div
-          ref={titleRef}
-          className="flex flex-col max-w-3xl gap-3 text-left my-3 lg:mt-0"
+          ref={sectionHome}
+          className="flex flex-col max-w-3xl gap-3 text-left my-3 lg:mt-0 will-change-transform will-change-opacity overflow-hidden"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[76px] font-bold">
             Beriklan Bersama Kreasi Advertising
           </h1>
-          <p className="text-base sm:text-lg md:text-xl  lg:text-[24px] text-[#B4B4B4]">
+          <p className="text-base sm:text-lg md:text-xl lg:text-[24px] text-[#B4B4B4]">
             Tempat periklanan terpercaya di Bukittinggi untuk bisnis Anda. Kami
             menyediakan layanan iklan billboard, spanduk, dan media promosi
             kreatif yang efektif menjangkau lebih banyak pelanggan.

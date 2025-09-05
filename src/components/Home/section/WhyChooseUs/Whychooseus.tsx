@@ -3,11 +3,46 @@ import React from "react";
 import Card from "./Card";
 import Image from "next/image";
 import { logoClient } from "@/lib/data";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 
 const Whychooseus = () => {
+  const logoTrackRef = React.useRef<HTMLDivElement | null>(null);
+  const sectionRef = React.useRef<HTMLDivElement | null>(null);
+  useGSAP(() => {
+    if (!logoTrackRef.current) return;
+    gsap.fromTo(
+      Array.from(sectionRef.current?.children || []), // convert ke array
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power4.inOut",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 100%", // baru jalan pas muncul di layar
+          toggleActions: "play none none reset", // play sekali doang
+        },
+      }
+    );
+
+    gsap.to(logoTrackRef.current, {
+      x: "-50%", // geser separuh karena kita duplicate list
+      duration: 10, // makin kecil makin cepat
+      ease: "linear",
+      repeat: -1, // infinite loop
+    });
+  }, []);
   return (
-    <div className="p-0 md:p-6 lg:p-10 min-h-screen bg-[#FFF8EA]">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 min-h-[60vh] py-3">
+    <div className="p-0 md:p-6 lg:p-8 min-h-screen overflow-hidden ">
+      <div
+        ref={sectionRef}
+        className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 min-h-[60vh] py-3"
+      >
         <div className="flex flex-col text-center md:text-left">
           <h1 className="text-xl md:text-2xl font-bold text-[#333333]">
             Why Choose Us
@@ -36,15 +71,29 @@ const Whychooseus = () => {
           </h3>
 
           {/* Tablet & Desktop: Grid or flex wrap */}
-          <div className="">
-            <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-12 py-4 md:py-6  lg:py-8 overflow-hidden">
+          <div className="relative w-full overflow-hidden py-6">
+            {/* Gradient kiri */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#FFF8EA] to-transparent z-10" />
+            {/* Gradient kanan */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#FFF8EA] to-transparent z-10" />
+
+            {/* Track logo */}
+            <div ref={logoTrackRef} className="flex items-center gap-12">
               {logoClient.map((item, index) => (
                 <Image
-                  src={item.path}
                   key={index}
+                  src={item.path}
                   alt={item.alt}
-                  className="w-20
-                       object-contain transition-transform duration-200 hover:scale-105"
+                  className="w-20 object-contain"
+                />
+              ))}
+              {/* Duplicate biar looping mulus */}
+              {logoClient.map((item, index) => (
+                <Image
+                  key={`dup-${index}`}
+                  src={item.path}
+                  alt={item.alt}
+                  className="w-20 object-contain"
                 />
               ))}
             </div>

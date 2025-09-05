@@ -9,10 +9,10 @@ const page = () => {
       <section id="homepage">
         <Homepage />
       </section>
-      <section id="whychooseus">
+      <section id="whychooseus" className="bg-[#FFF8EA] overflow-hidden">
         <Whychooseus />
       </section>
-      <section id="whatweworkingon">
+      <section id="whatweworkingon" className="overflow-hidden">
         <WhatWeWorking />
       </section>
       <section id="cta">
