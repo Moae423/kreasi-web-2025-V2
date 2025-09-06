@@ -31,7 +31,7 @@ const ServicesPage = () => {
             ease: "power4.inOut",
             scrollTrigger: {
               trigger: el,
-              start: "top 85%",
+              start: "top 100%",
               toggleActions: "play none none reset",
             },
           }
