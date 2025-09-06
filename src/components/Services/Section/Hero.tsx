@@ -1,10 +1,41 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import backgroundImage from "@/assets/images/billdoard (2).jpg";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+  const sectionHero = React.useRef<HTMLDivElement | null>(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      // Animasi child, bukan parent
+      gsap.fromTo(
+        Array.from(sectionHero.current?.children || []), // convert ke array
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.inOut",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: sectionHero.current,
+            start: "top 100%", // baru jalan pas muncul di layar
+            toggleActions: "play none none reset", // play sekali doang
+          },
+        }
+      );
+    }, sectionHero);
+
+    return () => ctx.revert(); // cleanup GSAP
+  }, []);
   return (
-    <div className="relative w-full h-[60dvh] md:h-[80dvh] flex items-end justify-start  overflow-hidden">
+    <div className="relative w-full  min-h-screen flex items-end justify-start  overflow-hidden">
       {/* Background image */}
       <Image
         src={backgroundImage}
@@ -15,7 +46,10 @@ const Hero = () => {
       />
 
       {/* Overlay content */}
-      <div className="relative flex flex-col gap-5 items-start  z-10 max-w-5xl p-8">
+      <div
+        ref={sectionHero}
+        className="relative flex flex-col gap-5 items-start  z-10 max-w-5xl p-8"
+      >
         <h1 className="text-3xl md:text-5xl font-bold text-[#FEEABE] drop-shadow-lg">
           Apa Saja Layanan Kami?
         </h1>

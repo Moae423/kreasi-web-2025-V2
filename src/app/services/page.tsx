@@ -10,7 +10,7 @@ const page = () => {
       <section id="hero">
         <Hero />
       </section>
-      <section id="services">
+      <section id="services" className="min-h-screen bg-[#0F2166]">
         <ServicesPage />
       </section>
       <section id="ourworks">
