@@ -1,9 +1,40 @@
+"use client";
 import Image from "next/image";
-
 import gambar from "@/assets/images/About/bao-bao.jpg";
 import HireUs from "@/components/CtaButton";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import React from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CTA = () => {
+  const sectionHero = React.useRef<HTMLDivElement | null>(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      // Animasi child, bukan parent
+      gsap.fromTo(
+        Array.from(sectionHero.current?.children || []), // convert ke array
+        { y: 80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.inOut",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: sectionHero.current,
+            start: "top 80%", // baru jalan pas muncul di layar
+            toggleActions: "play none none reset",
+          },
+        }
+      );
+    }, sectionHero);
+
+    return () => ctx.revert(); // cleanup GSAP
+  }, []);
   return (
     <div className="relative w-full h-[60vh] flex items-center justify-center text-center overflow-hidden">
       {/* Background image */}
@@ -16,7 +47,10 @@ const CTA = () => {
       />
 
       {/* Overlay content */}
-      <div className="relative flex flex-col gap-5 items-center z-10 max-w-3xl px-6">
+      <div
+        ref={sectionHero}
+        className="relative flex flex-col gap-5 items-center z-10 max-w-3xl px-6"
+      >
         <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
           Let&apos;s Get In Touch
         </h1>
