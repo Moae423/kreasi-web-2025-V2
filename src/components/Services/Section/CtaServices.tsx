@@ -1,9 +1,38 @@
+"use client";
 import CtaButton from "@/components/CtaButton";
 import Image from "next/image";
 import React from "react";
 import billboard from "@/assets/images/billdoard (1).jpg";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 
 const CtaServices = () => {
+  const sectionCta = React.useRef<HTMLDivElement | null>(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        Array.from(sectionCta.current?.children || []), // convert ke array
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.inOut",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: sectionCta.current,
+            start: "top 100%", // baru jalan pas muncul di layar
+            toggleActions: "play none none reset", // play sekali doang
+          },
+        }
+      );
+    }, sectionCta);
+
+    return () => ctx.revert();
+  }, []);
   return (
     <div className="flex flex-col lg:flex-row min-h-[80dvh] bg-[#0F2166]">
       {/* Text Section */}
@@ -11,7 +40,7 @@ const CtaServices = () => {
         className="flex flex-col justify-center w-full lg:w-1/2 px-6 md:px-8 lg:px-12 xl:px-16 
       py-12 lg:py-16 text-center lg:text-left order-2 lg:order-1"
       >
-        <div className="max-w-xl mx-auto lg:mx-0">
+        <div ref={sectionCta} className="max-w-xl mx-auto lg:mx-0">
           <h1
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[48px] 
           font-bold text-[#fefefe] leading-tight mb-4 md:mb-6"
