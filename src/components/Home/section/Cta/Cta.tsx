@@ -56,7 +56,7 @@ const CTA = () => {
         <p className="text-white text-lg md:text-xl">
           Bersama kami naikan brand awareness anda
         </p>
-        <HireUs link={"/contact-us"}>
+        <HireUs link={"https://linktr.ee/KreasiADV"}>
           <BsBriefcaseFill />
           Hire Us
         </HireUs>

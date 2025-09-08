@@ -66,7 +66,7 @@ const Homepage = () => {
             kreatif yang efektif menjangkau lebih banyak pelanggan.
           </p>
           <div className="flex justify-center lg:justify-start">
-            <HireUs link="/contact-us">
+            <HireUs link="https://linktr.ee/KreasiADV">
               <BsBriefcaseFill />
               Hire Us
             </HireUs>
