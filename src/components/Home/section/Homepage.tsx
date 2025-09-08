@@ -25,6 +25,7 @@ const Homepage = () => {
           opacity: 1,
           duration: 0.8,
           ease: "power4.inOut",
+          delay: 1,
           stagger: 0.2,
           scrollTrigger: {
             trigger: sectionHome.current,

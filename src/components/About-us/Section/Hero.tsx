@@ -22,6 +22,7 @@ const Hero = () => {
           opacity: 1,
           duration: 0.8,
           ease: "power4.inOut",
+          delay: 1,
           stagger: 0.15,
           scrollTrigger: {
             trigger: sectionHero.current,
@@ -35,16 +36,18 @@ const Hero = () => {
     return () => ctx.revert(); // cleanup GSAP
   }, []);
   return (
-    <div className="relative w-full h-[60dvh] md:min-h-screen ] flex items-end justify-start overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-end justify-start overflow-hidden">
       <Image
         src={gambar}
         alt="About Us"
-        className="object-cover w-full h-full saturate-100"
+        fill
+        priority
+        className="object-cover object-center saturate-100"
       />
       <div className="absolute inset-0 bg-black opacity-50" />
       <div
         ref={sectionHero}
-        className="absolute inset-0 flex flex-col gap-3 items-center justify-center max-w-7xl mx-auto"
+        className="absolute inset-0 flex flex-col gap-3 items-center justify-center max-w-7xl mx-auto px-4"
       >
         <h1 className="text-3xl sm:text-3xl md:text-5xl lg:text-[101px] text-white font-bold text-center">
           Apa Sih Sebenarnya Kreasi Advertising?

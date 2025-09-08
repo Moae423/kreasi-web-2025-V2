@@ -22,7 +22,8 @@ const Hero = () => {
           opacity: 1,
           duration: 0.8,
           ease: "power4.inOut",
-          stagger: 0.2,
+          delay: 1,
+          stagger: 0.3,
           scrollTrigger: {
             trigger: sectionHero.current,
             start: "top 100%", // baru jalan pas muncul di layar

@@ -26,7 +26,7 @@ const CTA = () => {
           stagger: 0.15,
           scrollTrigger: {
             trigger: sectionHero.current,
-            start: "top 80%", // baru jalan pas muncul di layar
+            start: "top 100%", // baru jalan pas muncul di layar
             toggleActions: "play none none reset",
           },
         }

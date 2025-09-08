@@ -1,61 +1,91 @@
+"use client";
 import React from "react";
-import { FaLowVision } from "react-icons/fa";
+import { VscVscodeInsiders } from "react-icons/vsc";
+import { MdVisibility } from "react-icons/md";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 
 const Visi = () => {
+  const VisiRef = React.useRef<HTMLDivElement | null>(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      // Animasi child, bukan parent
+      gsap.fromTo(
+        Array.from(VisiRef.current?.children || []), // convert ke array
+        { y: 80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.inOut",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: VisiRef.current,
+            start: "top 100%", // baru jalan pas muncul di layar
+            toggleActions: "play none none reset",
+          },
+        }
+      );
+    }, VisiRef);
+
+    return () => ctx.revert(); // cleanup GSAP
+  }, []);
   const dataContent = [
     {
       id: "mission",
-      title: "Our Mission",
-      content: "Visioner and Creativity",
+      icon: VscVscodeInsiders,
+      title: "Visioner and Creativity",
       desc: "Kami hadir untuk menghidupkan ide melalui media luar ruang dan solusi kreatif. Misi kami adalah membantu brand tampil mencolok di tengah keramaian, menyampaikan pesan dengan presisi, dan menciptakan dampak nyata di setiap titik sentuh iklan.",
-      position: "right",
     },
     {
       id: "vision",
       title: "Our Vision",
-      content: "Amplify What Matters",
+      icon: MdVisibility,
       desc: "Kami percaya bahwa setiap merek memiliki cerita yang layak untuk didengar. Visi kami adalah menjadi jembatan antara pesan yang bermakna dan audiens yang tepat—memperkuat komunikasi visual yang tidak hanya terlihat, tetapi juga dirasakan.",
-      position: "left",
     },
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen md:h-[80dvh] bg-[#FFF8EA] p-6 md:p-10">
-      <h1 className="text-[#0F2166] text-4xl md:text-5xl lg:text-[57px] font-bold text-center py-8">
-        Creative Vision & Approach
+    <div
+      ref={VisiRef}
+      className="flex flex-col items-center justify-center min-h-screen md:h-[80dvh] bg-[#0F2166] p-6 md:p-10"
+    >
+      <h1 className="text-[#ffffff] text-4xl md:text-5xl lg:text-[57px] font-bold text-center py-8">
+        Kreasi Vision & Approach
       </h1>
 
-      <div className="flex flex-col gap-12 w-full max-w-6xl">
-        {dataContent.map((item) => (
-          <div
-            key={item.id}
-            className={`flex flex-col items-center gap-6 md:gap-10 my-8 ${
-              item.position === "left" ? "md:flex-row-reverse" : "md:flex-row"
-            }`}
-          >
-            {/* Text */}
-            <div className="flex-1 text-center md:text-left">
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+      <div className="flex flex-col gap-12 w-full max-w-6xl my-3">
+        {dataContent.map((item) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={item.id}
+              className="bg-[#132A82] p-3 md:p-4 lg:p-6 rounded-lg"
+            >
+              <div className="flex items-center gap-3">
+                <Icon className="w-12 h-12 text-[#FDC957]" />
+                <h1 className="text-[43px] font-bold text-[#FDC957]">
+                  {item.title}
+                </h1>
+              </div>
+              <p className="text-white  text-base md:text-[18px] max-w-5xl ">
                 {item.desc}
               </p>
             </div>
-
-            {/* Icon + Title + Content */}
-            <div className="flex-1 flex flex-col items-center md:items-start gap-4">
-              <div className="flex items-center gap-3">
-                <FaLowVision className="w-8 h-8 md:w-10 md:h-10 text-[#0F2166]" />
-                <h2 className="text-2xl md:text-[32px] font-semibold text-gray-900">
-                  {item.title}
-                </h2>
-              </div>
-              <p className="text-3xl md:text-[43px] font-bold text-[#0F2166]">
-                {item.content}
-              </p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
-    </section>
+      <p className="text-gray-400 text-center max-w-5xl my-5">
+        Dengan menggabungkan visi kreatif dan misi yang berorientasi pada hasil,
+        Kreasi Advertising menjadi mitra strategis bagi bisnis yang ingin
+        berkembang pesat. Kami percaya bahwa iklan bukan hanya soal tampil,
+        tetapi juga soal bagaimana pesan brand Anda dapat membangun hubungan
+        emosional dengan audiens dan menciptakan loyalitas jangka panjang.
+      </p>
+    </div>
   );
 };
 
